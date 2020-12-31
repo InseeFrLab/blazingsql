@@ -13,7 +13,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 #RUN useradd nobody --uid 99 --home /home/nobody/ --create-home --groups nobody --gid nobody --shell /bin/bash
 #RUN chown -R nobody:nobody /blazingsql
 RUN pip install s3fs hvac boto3
-
+RUN source activate bsql
 RUN pip install jupyterlab-git jupyterlab_latex & \
     jupyter labextension install --no-build @jupyterlab/git @jupyterlab/latex & \
     jupyter serverextension enable --sys-prefix jupyterlab_latex jupyterlab_git
