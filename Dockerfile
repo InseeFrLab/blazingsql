@@ -14,11 +14,12 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 #RUN chown -R nobody:nobody /blazingsql
 RUN pip install s3fs hvac boto3
 
-RUN source activate bsql & \
-    pip install jupyterlab-git jupyterlab_latex & \
+ENV PATH="/usr/local/envs/bsql/bin/:${PATH}"
+RUN pip install jupyterlab-git jupyterlab_latex & \
     jupyter labextension install --no-build @jupyterlab/git @jupyterlab/latex & \
-    jupyter serverextension enable --sys-prefix jupyterlab_latex jupyterlab_git & \
-    jupyter lab build
+    jupyter serverextension enable --sys-prefix jupyterlab_latex jupyterlab_git
+
+RUN jupyter lab build
 
 ADD run_jupyter.sh /run_jupyter.sh
 #RUN chown nobody:nobody /run_jupyter.sh && chmod +x /run_jupyter.sh
