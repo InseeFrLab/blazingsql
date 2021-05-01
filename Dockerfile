@@ -8,7 +8,7 @@ RUN apt-get -y update && apt-get -y install wget \
 RUN wget "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl
     
-RUN sudo sh -c "kubectl completion bash >/etc/bash_completion.d/kubectl" 
+RUN sh -c "kubectl completion bash >/etc/bash_completion.d/kubectl" 
 
 RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && \
     chmod 700 get_helm.sh && \
