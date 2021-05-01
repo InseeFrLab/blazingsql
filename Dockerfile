@@ -1,11 +1,8 @@
 FROM blazingdb/blazingsql
 
 RUN sudo apt-get -y update && \
-    sudo apt-get -y install wget \
-                            jq \
-                            bash-completion \
-                            git
-                            
+    sudo apt-get -y install wget git jq bash-completion
+
 RUN sudo wget "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl && \
     sudo chmod +x /usr/local/bin/kubectl
     
