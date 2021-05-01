@@ -5,8 +5,8 @@ RUN apt-get -y update && apt-get -y install wget \
                                             bash-completion \
                                             jq
 
-RUN sudo wget "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl && \
-    sudo chmod +x /usr/local/bin/kubectl
+RUN wget "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kubectl
     
 RUN sudo sh -c "kubectl completion bash >/etc/bash_completion.d/kubectl" 
 
@@ -14,8 +14,8 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master
     chmod 700 get_helm.sh && \
     ./get_helm.sh
 
-RUN sudo wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && \
-    sudo chmod +x /usr/local/bin/mc
+RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && \
+    chmod +x /usr/local/bin/mc
 
 #RUN userdel nobody
 #RUN groupadd --gid 99 nobody
