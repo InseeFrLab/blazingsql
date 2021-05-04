@@ -22,7 +22,7 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
 #RUN useradd nobody --uid 99 --home /home/nobody/ --create-home --groups nobody --gid nobody --shell /bin/bash
 #RUN chown -R nobody:nobody /blazingsql
 
-RUN conda install -y -n bsql s3fs hvac boto3 dask-kubernetes
+RUN conda install -y -n bsql -c blazingsql -c rapidsai -c nvidia -c conda-forge -c defaults s3fs hvac boto3 dask-kubernetes
 
 ADD run_jupyter.sh /run_jupyter.sh
 RUN chmod +x /run_jupyter.sh
