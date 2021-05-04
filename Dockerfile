@@ -26,5 +26,7 @@ RUN pip install s3fs hvac boto3
 
 ADD run_jupyter.sh /run_jupyter.sh
 RUN chmod +x /run_jupyter.sh
+
+ENTRYPOINT /run_jupyter.sh
 #RUN chown nobody:nobody /run_jupyter.sh && chmod +x /run_jupyter.sh
 #USER nobody
