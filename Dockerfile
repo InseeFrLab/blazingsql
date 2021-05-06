@@ -27,6 +27,6 @@ RUN conda install -y -n bsql -c blazingsql -c rapidsai -c nvidia -c conda-forge 
 ADD run_jupyter.sh /run_jupyter.sh
 RUN chmod +x /run_jupyter.sh
 
-ENTRYPOINT /run_jupyter.sh
+ENTRYPOINT ["/run_jupyter.sh"]
 #RUN chown nobody:nobody /run_jupyter.sh && chmod +x /run_jupyter.sh
 #USER nobody
